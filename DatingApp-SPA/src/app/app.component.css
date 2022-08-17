@@ -1,0 +1,8 @@
+.main{
+ display: flex;
+ flex-flow: wrap column;
+ align-items: center;
+ justify-content: center;
+ background-color: bisque;
+ border: 2 solid #f2f2f1;
+}
