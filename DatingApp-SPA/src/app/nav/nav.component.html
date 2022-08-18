@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dating App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Matches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lists</a>
+          </li>
+          <li class="nav-item" *ngIf="">
+            <a class="nav-link" href="#">Message</a>
+          </li>
+          <li *ngIf="loggedIn()" class="nav-item">
+            <a href="#" class="nav-link" (click)="logout()">Logout</a>
+          </li>
+          <li  *ngIf="loggedIn()" class="nav-item dropdown float-right" >
+            <a class="nav-link dropdown-toggle" >
+              Welcome User
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Edit User</a>
+              <hr class="dropdown-divider">
+              <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+            </div>
+          </li>
+        </ul>
+        <form *ngIf="!loggedIn()"  #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" role="search">
+          <input class="form-control me-2" type="text" name="username" [(ngModel)]="model.username" placeholder="Username">
+          <input class="form-control me-2" type="password" [(ngModel)]="model.password" name="password" placeholder="Password">
+          <button [disabled]="!loginForm.valid" class="btn btn-success" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </nav>
